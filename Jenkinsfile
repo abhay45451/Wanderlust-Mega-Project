@@ -61,6 +61,13 @@ pipeline {
                 }
             }
         }
+         stage("SonarQube: Code Quality Gates"){
+            steps{
+                script{
+                    sonarqube_code_quality()
+                }
+            }
+        }
         
         stage('Exporting environment variables') {
             parallel{
